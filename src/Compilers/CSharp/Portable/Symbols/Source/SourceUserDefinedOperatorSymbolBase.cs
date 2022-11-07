@@ -250,11 +250,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Symbols
 
             // restricted types cannot be returned. 
             // NOTE: Span-like types can be returned (if expression is returnable).
-            if (returnType.IsRestrictedType(ignoreSpanLikeTypes: true))
-            {
-                // The return type of a method, delegate, or function pointer cannot be '{0}'
-                diagnostics.Add(ErrorCode.ERR_MethodReturnCantBeRefAny, returnTypeSyntax.Location, returnType.Type);
-            }
+            // if (returnType.IsRestrictedType(ignoreSpanLikeTypes: true))
+            // {
+            //     // The return type of a method, delegate, or function pointer cannot be '{0}'
+            //     diagnostics.Add(ErrorCode.ERR_MethodReturnCantBeRefAny, returnTypeSyntax.Location, returnType.Type);
+            // }
 
             if (returnType.Type.IsStatic)
             {

@@ -1202,12 +1202,12 @@ namespace Microsoft.CodeAnalysis.CSharp
 
             TypeSymbol typedReferenceType = GetSpecialType(SpecialType.System_TypedReference, diagnostics, node);
 
-            if ((object)argument.Type != null && argument.Type.IsRestrictedType())
-            {
-                // CS1601: Cannot make reference to variable of type '{0}'
-                Error(diagnostics, ErrorCode.ERR_MethodArgCantBeRefAny, node, argument.Type);
-                hasErrors = true;
-            }
+            // if ((object)argument.Type != null && argument.Type.IsRestrictedType())
+            // {
+            //     // CS1601: Cannot make reference to variable of type '{0}'
+            //     Error(diagnostics, ErrorCode.ERR_MethodArgCantBeRefAny, node, argument.Type);
+            //     hasErrors = true;
+            // }
 
             // UNDONE: We do not yet implement warnings anywhere for:
             // UNDONE: * taking a ref to a volatile field

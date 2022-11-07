@@ -656,12 +656,12 @@ namespace Microsoft.CodeAnalysis.CSharp.Symbols
                 Location loc = ((ParameterSyntax)parameterSyntax).Identifier.GetNextToken(includeZeroWidth: true).GetLocation(); //could be missing
                 diagnostics.Add(ErrorCode.ERR_DefaultValueBeforeRequiredValue, loc);
             }
-            else if (parameter.RefKind != RefKind.None &&
-                parameter.TypeWithAnnotations.IsRestrictedType(ignoreSpanLikeTypes: true))
-            {
-                // CS1601: Cannot make reference to variable of type 'System.TypedReference'
-                diagnostics.Add(ErrorCode.ERR_MethodArgCantBeRefAny, parameterSyntax.Location, parameter.Type);
-            }
+            // else if (parameter.RefKind != RefKind.None &&
+            //     parameter.TypeWithAnnotations.IsRestrictedType(ignoreSpanLikeTypes: true))
+            // {
+            //     // CS1601: Cannot make reference to variable of type 'System.TypedReference'
+            //     diagnostics.Add(ErrorCode.ERR_MethodArgCantBeRefAny, parameterSyntax.Location, parameter.Type);
+            // }
 
             if (parameter is SourceParameterSymbol { DeclaredScope: DeclarationScope.ValueScoped } && !parameter.TypeWithAnnotations.IsRefLikeType())
             {

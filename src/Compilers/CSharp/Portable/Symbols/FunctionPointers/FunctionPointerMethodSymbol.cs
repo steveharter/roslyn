@@ -78,10 +78,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Symbols
                 {
                     diagnostics.Add(ErrorFacts.GetStaticClassReturnCode(useWarning: false), returnTypeParameter.Location, returnType);
                 }
-                else if (returnType.IsRestrictedType(ignoreSpanLikeTypes: true))
-                {
-                    diagnostics.Add(ErrorCode.ERR_MethodReturnCantBeRefAny, returnTypeParameter.Location, returnType);
-                }
+                // else if (returnType.IsRestrictedType(ignoreSpanLikeTypes: true))
+                // {
+                //     diagnostics.Add(ErrorCode.ERR_MethodReturnCantBeRefAny, returnTypeParameter.Location, returnType);
+                // }
             }
 
             var refCustomModifiers = ImmutableArray<CustomModifier>.Empty;

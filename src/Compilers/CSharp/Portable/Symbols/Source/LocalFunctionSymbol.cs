@@ -269,11 +269,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Symbols
             }
 
             // span-like types are returnable in general
-            if (returnType.IsRestrictedType(ignoreSpanLikeTypes: true))
-            {
-                // The return type of a method, delegate, or function pointer cannot be '{0}'
-                diagnostics.Add(ErrorCode.ERR_MethodReturnCantBeRefAny, returnTypeSyntax.Location, returnType.Type);
-            }
+            // if (returnType.IsRestrictedType(ignoreSpanLikeTypes: true))
+            // {
+            //     // The return type of a method, delegate, or function pointer cannot be '{0}'
+            //     diagnostics.Add(ErrorCode.ERR_MethodReturnCantBeRefAny, returnTypeSyntax.Location, returnType.Type);
+            // }
 
             Debug.Assert(_refKind == RefKind.None
                 || !returnType.IsVoidType()

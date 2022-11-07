@@ -59,10 +59,10 @@ namespace Microsoft.CodeAnalysis.CSharp.Symbols
             {
                 diagnostics.Add(ErrorCode.ERR_FieldCantHaveVoidType, TypeSyntax?.Location ?? this.Locations[0]);
             }
-            else if (type.IsRestrictedType(ignoreSpanLikeTypes: true))
-            {
-                diagnostics.Add(ErrorCode.ERR_FieldCantBeRefAny, TypeSyntax?.Location ?? this.Locations[0], type);
-            }
+            // else if (type.IsRestrictedType(ignoreSpanLikeTypes: true))
+            // {
+            //     diagnostics.Add(ErrorCode.ERR_FieldCantBeRefAny, TypeSyntax?.Location ?? this.Locations[0], type);
+            // }
             else if (type.IsRefLikeType && (this.IsStatic || !containingType.IsRefLikeType))
             {
                 diagnostics.Add(ErrorCode.ERR_FieldAutoPropCantBeByRefLike, TypeSyntax?.Location ?? this.Locations[0], type);

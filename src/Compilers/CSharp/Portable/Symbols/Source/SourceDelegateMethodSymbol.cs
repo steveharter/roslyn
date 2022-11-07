@@ -56,11 +56,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Symbols
             var objectType = TypeWithAnnotations.Create(binder.GetSpecialType(SpecialType.System_Object, diagnostics, syntax));
             var intPtrType = TypeWithAnnotations.Create(binder.GetSpecialType(SpecialType.System_IntPtr, diagnostics, syntax));
 
-            if (returnType.IsRestrictedType(ignoreSpanLikeTypes: true))
-            {
-                // The return type of a method, delegate, or function pointer cannot be '{0}'
-                diagnostics.Add(ErrorCode.ERR_MethodReturnCantBeRefAny, returnTypeSyntax.Location, returnType.Type);
-            }
+            // if (returnType.IsRestrictedType(ignoreSpanLikeTypes: true))
+            // {
+            //     // The return type of a method, delegate, or function pointer cannot be '{0}'
+            //     diagnostics.Add(ErrorCode.ERR_MethodReturnCantBeRefAny, returnTypeSyntax.Location, returnType.Type);
+            // }
 
             // A delegate has the following members: (see CLI spec 13.6)
             // (1) a method named Invoke with the specified signature

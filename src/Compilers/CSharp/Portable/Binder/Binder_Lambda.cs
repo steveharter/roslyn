@@ -241,10 +241,10 @@ namespace Microsoft.CodeAnalysis.CSharp
             {
                 diagnostics.Add(ErrorFacts.GetStaticClassReturnCode(useWarning: false), syntax.Location, type);
             }
-            else if (returnType.IsRestrictedType(ignoreSpanLikeTypes: true))
-            {
-                diagnostics.Add(ErrorCode.ERR_MethodReturnCantBeRefAny, syntax.Location, type);
-            }
+            // else if (returnType.IsRestrictedType(ignoreSpanLikeTypes: true))
+            // {
+            //     diagnostics.Add(ErrorCode.ERR_MethodReturnCantBeRefAny, syntax.Location, type);
+            // }
 
             return (refKind, returnType);
         }

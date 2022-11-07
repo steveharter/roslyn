@@ -1533,11 +1533,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Symbols
         protected virtual void ValidatePropertyType(BindingDiagnosticBag diagnostics)
         {
             var type = this.Type;
-            if (type.IsRestrictedType(ignoreSpanLikeTypes: true))
-            {
-                diagnostics.Add(ErrorCode.ERR_FieldCantBeRefAny, TypeLocation, type);
-            }
-            else if (this.IsAutoPropertyWithGetAccessor && type.IsRefLikeType && (this.IsStatic || !this.ContainingType.IsRefLikeType))
+            // if (type.IsRestrictedType(ignoreSpanLikeTypes: true))
+            // {
+            //     diagnostics.Add(ErrorCode.ERR_FieldCantBeRefAny, TypeLocation, type);
+            // }
+            if (this.IsAutoPropertyWithGetAccessor && type.IsRefLikeType && (this.IsStatic || !this.ContainingType.IsRefLikeType))
             {
                 diagnostics.Add(ErrorCode.ERR_FieldAutoPropCantBeByRefLike, TypeLocation, type);
             }

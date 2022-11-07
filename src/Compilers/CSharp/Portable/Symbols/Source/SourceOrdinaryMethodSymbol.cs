@@ -148,19 +148,19 @@ namespace Microsoft.CodeAnalysis.CSharp.Symbols
             TypeWithAnnotations returnType = signatureBinder.BindType(returnTypeSyntax, diagnostics);
 
             // span-like types are returnable in general
-            if (returnType.IsRestrictedType(ignoreSpanLikeTypes: true))
-            {
-                if (returnType.SpecialType == SpecialType.System_TypedReference &&
-                    (this.ContainingType.SpecialType == SpecialType.System_TypedReference || this.ContainingType.SpecialType == SpecialType.System_ArgIterator))
-                {
-                    // Two special cases: methods in the special types TypedReference and ArgIterator are allowed to return TypedReference
-                }
-                else
-                {
-                    // The return type of a method, delegate, or function pointer cannot be '{0}'
-                    diagnostics.Add(ErrorCode.ERR_MethodReturnCantBeRefAny, syntax.ReturnType.Location, returnType.Type);
-                }
-            }
+            // if (returnType.IsRestrictedType(ignoreSpanLikeTypes: true))
+            // {
+            //     if (returnType.SpecialType == SpecialType.System_TypedReference &&
+            //         (this.ContainingType.SpecialType == SpecialType.System_TypedReference || this.ContainingType.SpecialType == SpecialType.System_ArgIterator))
+            //     {
+            //         // Two special cases: methods in the special types TypedReference and ArgIterator are allowed to return TypedReference
+            //     }
+            //     else
+            //     {
+            //         // The return type of a method, delegate, or function pointer cannot be '{0}'
+            //         diagnostics.Add(ErrorCode.ERR_MethodReturnCantBeRefAny, syntax.ReturnType.Location, returnType.Type);
+            //     }
+            // }
 
             Debug.Assert(this.RefKind == RefKind.None || !returnType.IsVoidType() || returnTypeSyntax.HasErrors);
 
